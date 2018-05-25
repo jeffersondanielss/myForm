@@ -1,0 +1,11 @@
+.fieldset {
+  border: none;
+
+  &__label {
+    font-size: 15px;
+  }
+
+  &--hidden {
+    display: none;
+  }
+}

@@ -1,4 +1,3 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
@@ -6,7 +5,8 @@
 </div>
 
 <form class="form">
-  <fieldset class="form__fieldset" *ngFor="let question of questions" [ngClass]=" question.hidden ? 'form--hidden': 'form--show' ">
+  <fieldset class="form" *ngFor="let question of questions" [ngClass]=" question.hidden ? 'form--hidden': 'form--show' ">
     <label class="form__label" for="">{{ question.label }}</label>
+    <app-fieldset [data]="question.options"></app-fieldset>
   </fieldset>
 </form>

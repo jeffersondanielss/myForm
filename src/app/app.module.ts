@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { QuestionsService } from './questions.service';
 import { AppComponent } from './app.component';
+import { FieldsetComponent } from './fieldset/fieldset.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FieldsetComponent
   ],
   imports: [
     BrowserModule,
