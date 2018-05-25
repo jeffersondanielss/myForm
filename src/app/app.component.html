@@ -1,12 +1,12 @@
-<div style="text-align:center">
+<div class="container app">
   <h1>
-    Welcome to {{ title }}!
+    <img src="https://www.thinkseg.com/assets/images/logo-thinkseg.svg" class="app__logo" alt="thinkSeg">
   </h1>
-</div>
 
-<form class="form">
-  <fieldset class="form" *ngFor="let question of questions" [ngClass]=" question.hidden ? 'form--hidden': 'form--show' ">
-    <label class="form__label" for="">{{ question.label }}</label>
-    <app-fieldset [data]="question.options"></app-fieldset>
-  </fieldset>
-</form>
+  <form class="form">
+    <fieldset class="form" *ngFor="let question of questions" [ngClass]=" question.hidden ? 'form--hidden': 'form--show' ">
+      <label class="form__label" for="">{{ question.label }}</label>
+      <app-fieldset [data]="question.options"></app-fieldset>
+    </fieldset>
+  </form>
+</div>

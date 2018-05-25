@@ -13,6 +13,10 @@ export class FieldsetComponent implements OnInit {
   constructor() {
   }
 
+  onChange(e){
+    console.log(e.value)
+  }
+
   ngOnInit() {
     for( let item in this.data ) {
       this.options.push(this.data[item])

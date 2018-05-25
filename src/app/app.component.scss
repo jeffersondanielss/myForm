@@ -1,15 +1,28 @@
+.app {
+  background: #FFFFFF;
+  box-shadow: 0 2px 10px #ccc;
+  border-radius: 5px;
+  padding: 5% 10%;
+  transform: translateY(40%);
+  max-width: 700px;
+
+  &__logo {
+    width: 120px;
+    height: 25px;
+    text-align: center;
+    margin: 0 auto 50px;
+    display: block;
+  }
+}
+
 .form {
 
   &__fieldset {
     border: none;
   }
 
-  &__label {
-    font-size: 15px;
-  }
-
-  &--hidden {
-    display: none;
-  }
+  // &--hidden {
+  //   display: none;
+  // }
   
 }
