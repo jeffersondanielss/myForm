@@ -23,11 +23,11 @@ export class AppComponent {
     
     this.questionsService.request().then( data => {
       this.saveQuestions(data)
-      this.thinkForm = new FormGroup(this.getFormGroup(this.names));
+      this.thinkForm = new FormGroup(this.getFormsNames(this.names));
     })
   }
 
-  getFormGroup(names){
+  getFormsNames(names){
     let inputs = {}
     names.forEach(name => inputs[name] = new FormControl());
     return inputs
@@ -53,6 +53,6 @@ export class AppComponent {
   }
 
   addPost(post) {
-    console.log({ answers: this.thinkForm.value })
+    console.table({ answers: this.thinkForm.value })
   }
 }
