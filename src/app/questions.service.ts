@@ -6,7 +6,6 @@ import { reject } from 'q';
 
 export class QuestionsService {
   URL = 'https://thinkseg-javascript-test.herokuapp.com/config';
-  response = [];
 
   constructor(private http: HttpClient) {}
 

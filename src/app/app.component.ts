@@ -27,30 +27,29 @@ export class AppComponent {
     })
   }
 
-  saveQuestions(object) {
-    Object.keys(object)
-      .map((objectKey, index) => {
-        this.names.push(objectKey)
-        this.questions.push(object[objectKey]);
+  getFormGroup(names){
+    let inputs = {}
+    names.forEach(name => inputs[name] = new FormControl());
+    return inputs
+  }
+
+  saveQuestions(data) {
+    Object.keys(data)
+      .forEach( questionName => {
+        this.names.push(questionName)
+        this.questions.push(data[questionName]);
       });
   }
 
   onChange(a, value) {
-    console.log(this.thinkForm.value)
+    if (!a) return;
+
     if ( value === "1" ) {
-      console.log( a.yes.show )
+      a.hidden = false
+    } else {
+      a.hidden = true
     }
     
-  }
-
-  getFormGroup(names){
-    let obj = {}
-
-    for( let item of names) {
-      obj[item] = new FormControl()
-    }
-
-    return obj
   }
 
   addPost(post) {

@@ -3,7 +3,7 @@
   box-shadow: 0 2px 10px #ccc;
   border-radius: 5px;
   padding: 5% 10%;
-  transform: translateY(40%);
+  margin-top: 15%;
   max-width: 700px;
 
   &__logo {
@@ -21,8 +21,8 @@
     border: none;
   }
 
-  // &--hidden {
-  //   display: none;
-  // }
+  &--hidden {
+    display: none;
+  }
   
 }
