@@ -3,10 +3,17 @@
     <img src="https://www.thinkseg.com/assets/images/logo-thinkseg.svg" class="app__logo" alt="thinkSeg">
   </h1>
 
-  <form class="form">
-    <fieldset class="form" *ngFor="let question of questions" [ngClass]=" question.hidden ? 'form--hidden': 'form--show' ">
+  <form class="form" [formGroup]="thinkForm" (ngSubmit)="addPost(thinkForm.value)">
+    <fieldset class="form" *ngFor="let question of questions; let xis = index" [ngClass]=" question.hidden ? 'form--hidden': 'form--show' ">
       <label class="form__label" for="">{{ question.label }}</label>
-      <app-fieldset [data]="question.options"></app-fieldset>
+
+      <div class="form-group">
+        <select class="form-control" formControlName="{{names[xis]}}" (change)="onChange(question.options, $event.target.value)">
+          <option *ngFor="let item of question.options | keys" value="{{ question.options[item].value }}">{{ question.options[item].label }}</option>
+        </select>
+      </div>
     </fieldset>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>
