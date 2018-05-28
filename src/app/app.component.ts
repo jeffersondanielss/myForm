@@ -28,11 +28,29 @@ export class AppComponent {
       });
   }
 
-  getFormsNames() {
+  /**
+   * Returna um grupo de campos controlados do formulário,
+   * com os nomes das perguntas.
+   *
+   * @memberof AppComponent
+   * @example
+   * this.getFormsNames()
+   */
+
+  getFormsNames () {
     const inputs = {};
     this.names.forEach(name => inputs[name] = new FormControl());
     return inputs;
   }
+
+  /**
+   * Escuta as modificações nos campos select do formulário
+   * para ativar as práximas perguntas se for o caso.
+   *
+   * @memberof AppComponent
+   * @example
+   * this.onChange('likes_thinkseg', 1)
+   */
 
   onChange(questionName, value) {
     const targetName = this.questions[questionName].options.yes.show;
@@ -45,7 +63,16 @@ export class AppComponent {
     }
   }
 
-  addAnswers(post) {
+  /**
+   * Envia as respostas do formulário para um endpoint e
+   * guarda a resposta para exibir para o usuário.
+   *
+   * @memberof AppComponent
+   * @example
+   * this.addAnswers()
+   */
+
+  addAnswers() {
     this.questionsService
       .post({ answers: this.thinkForm.value })
       .then( ({ cool_level }) => this.cool_level = cool_level );
