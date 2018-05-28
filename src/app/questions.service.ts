@@ -1,25 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { reject } from 'q';
+import { Config, Quotations } from './interfaces'
 
 @Injectable()
 
 export class QuestionsService {
-  URL = 'https://thinkseg-javascript-test.herokuapp.com/config';
+  URL = 'https://thinkseg-javascript-test.herokuapp.com/'
 
   constructor(private http: HttpClient) {}
 
-  request() {
-    interface QuestionResponse {
-      questions: object;
-    }
+  get() {
+    return this.http
+      .get<Config>(`${this.URL}/config`)
+      .toPromise()
+  }
 
-    return new Promise((resolve, reject) => {
-      this.http.get<QuestionResponse>(this.URL).subscribe(
-        data => resolve(data.questions),
-        err => reject(err.message)
-      );
-    })
-
+  post(answers){
+    return this.http
+      .post<Quotations>(`${this.URL}/quotations`, answers)
+      .toPromise()
   }
 }

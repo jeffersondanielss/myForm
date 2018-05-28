@@ -16,13 +16,14 @@ export class AppComponent {
   post: any;
   questions = [];
   names = [];
+  cool_level = undefined;
 
   constructor(private qs: QuestionsService, fb: FormBuilder) {
     this.questionsService = qs;
     this.thinkForm = new FormGroup({});
     
-    this.questionsService.request().then( data => {
-      this.saveQuestions(data)
+    this.questionsService.get().then( ({ questions }) => {
+      this.saveQuestions(questions)
       this.thinkForm = new FormGroup(this.getFormsNames(this.names));
     })
   }
@@ -52,7 +53,9 @@ export class AppComponent {
     
   }
 
-  addPost(post) {
-    console.table({ answers: this.thinkForm.value })
+  addAnswers(post) {
+    this.questionsService
+      .post({ answers: this.thinkForm.value })
+      .then( ({ cool_level }) => this.cool_level = cool_level )
   }
 }
