@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Config, Quotations } from './interfaces';
+import { Config, Quotations } from '../types/interfaces';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 
 export class QuestionsService {
   URL = 'https://thinkseg-javascript-test.herokuapp.com/';

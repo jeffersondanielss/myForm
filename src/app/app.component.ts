@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { QuestionsService } from './questions.service';
+import { QuestionsService } from './services/questions.service';
 
 @Component({
   selector: 'app-root',
