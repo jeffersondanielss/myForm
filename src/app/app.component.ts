@@ -12,9 +12,9 @@ import { QuestionsService } from './questions.service';
 export class AppComponent {
   questionsService: QuestionsService;
   thinkForm: FormGroup;
-  questions = {};
-  names = [];
-  cool_level = undefined;
+  questions: object = {};
+  names: Array<string> = [];
+  cool_level: string = undefined;
 
   constructor(private qs: QuestionsService) {
     this.questionsService = qs;
@@ -41,26 +41,6 @@ export class AppComponent {
     const inputs = {};
     this.names.forEach(name => inputs[name] = new FormControl());
     return inputs;
-  }
-
-  /**
-   * Escuta as modificações nos campos select do formulário
-   * para ativar as práximas perguntas se for o caso.
-   *
-   * @memberof AppComponent
-   * @example
-   * this.onChange('likes_thinkseg', 1)
-   */
-
-  onChange(questionName, value) {
-    const targetName = this.questions[questionName].options.yes.show;
-    const targetQuestion = this.questions[targetName];
-
-    if ( value === '1' ) {
-      targetQuestion.hidden = false;
-    } else {
-      targetQuestion.hidden = true;
-    }
   }
 
   /**

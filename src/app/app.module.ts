@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { KeysPipe } from './keysPipe';
 import { AlertComponent } from './components/alert/alert.component';
 import { LogoComponent } from './components/logo/logo.component';
+import { QuestionComponent } from './components/question/question.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     KeysPipe,
     AlertComponent,
-    LogoComponent
+    LogoComponent,
+    QuestionComponent
   ],
   imports: [
     BrowserModule,

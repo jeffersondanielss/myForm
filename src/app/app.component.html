@@ -4,19 +4,16 @@
   <form [formGroup]="thinkForm" (ngSubmit)="addAnswers(thinkForm.value)">
     
     <div *ngFor="let question of questions | keys; let qIndex = index">
-      <fieldset class="form-group" *ngIf="!questions[question].hidden">
-        <label>{{ questions[question].label }}</label>
-      
-        <div class="form-group">
-          <select class="form-control" formControlName="{{names[qIndex]}}" (change)="onChange(names[qIndex], $event.target.value)">
-            <option *ngFor="let item of questions[question].options | keys" value="{{ questions[question].options[item].value }}">{{ questions[question].options[item].label }}</option>
-          </select>
-        </div>
-      </fieldset>
+      <app-question
+        [questions]="questions"
+        [question]="question"
+        [names]="names"
+        [qIndex]="qIndex"
+        [group]="thinkForm">
+      </app-question>
     </div>
 
     <button type="submit" class="btn btn-primary btn-block">Enviar</button>
-
     <app-alert [cl]="cool_level"></app-alert>
 
   </form>
