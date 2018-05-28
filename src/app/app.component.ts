@@ -12,49 +12,41 @@ import { QuestionsService } from './questions.service';
 export class AppComponent {
   questionsService: QuestionsService;
   thinkForm: FormGroup;
-  post: any;
-  questions = [];
+  questions = {};
   names = [];
   cool_level = undefined;
 
   constructor(private qs: QuestionsService, fb: FormBuilder) {
     this.questionsService = qs;
     this.thinkForm = new FormGroup({});
-    
+
     this.questionsService.get().then( ({ questions }) => {
-      this.saveQuestions(questions)
+      this.questions = questions;
+      this.names = Object.keys(questions);
       this.thinkForm = new FormGroup(this.getFormsNames());
-    })
+    });
   }
 
-  getFormsNames(){
-    let inputs = {}
+  getFormsNames() {
+    const inputs = {};
     this.names.forEach(name => inputs[name] = new FormControl());
-    return inputs
+    return inputs;
   }
 
-  saveQuestions(data) {
-    Object.keys(data)
-      .forEach( questionName => {
-        this.names.push(questionName)
-        this.questions.push(data[questionName]);
-      });
-  }
+  onChange(questionName, value) {
+    const targetName = this.questions[questionName].options.yes.show;
+    const targetQuestion = this.questions[targetName];
 
-  onChange(a, value) {
-    if (!a) return;
-
-    if ( value === "1" ) {
-      a.hidden = false
+    if ( value === '1' ) {
+      targetQuestion.hidden = false;
     } else {
-      a.hidden = true
+      targetQuestion.hidden = true;
     }
-    
   }
 
   addAnswers(post) {
     this.questionsService
       .post({ answers: this.thinkForm.value })
-      .then( ({ cool_level }) => this.cool_level = cool_level )
+      .then( ({ cool_level }) => this.cool_level = cool_level );
   }
 }
