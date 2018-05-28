@@ -24,13 +24,13 @@ export class AppComponent {
     
     this.questionsService.get().then( ({ questions }) => {
       this.saveQuestions(questions)
-      this.thinkForm = new FormGroup(this.getFormsNames(this.names));
+      this.thinkForm = new FormGroup(this.getFormsNames());
     })
   }
 
-  getFormsNames(names){
+  getFormsNames(){
     let inputs = {}
-    names.forEach(name => inputs[name] = new FormControl());
+    this.names.forEach(name => inputs[name] = new FormControl());
     return inputs
   }
 

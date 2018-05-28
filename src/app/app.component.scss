@@ -13,20 +13,8 @@
     margin: 0 auto 50px;
     display: block;
   }
-}
-
-.form {
-
-  &__fieldset {
-    border: none;
-  }
-
-  &--hidden {
-    display: none;
-  }
 
   &__alert {
     margin-top: 1rem;
   }
-  
 }
