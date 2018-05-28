@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { QuestionsService } from './questions.service';
 
@@ -16,15 +16,16 @@ export class AppComponent {
   names = [];
   cool_level = undefined;
 
-  constructor(private qs: QuestionsService, fb: FormBuilder) {
+  constructor(private qs: QuestionsService) {
     this.questionsService = qs;
     this.thinkForm = new FormGroup({});
 
-    this.questionsService.get().then( ({ questions }) => {
-      this.questions = questions;
-      this.names = Object.keys(questions);
-      this.thinkForm = new FormGroup(this.getFormsNames());
-    });
+    this.questionsService.get()
+      .then( ({ questions }) => {
+        this.questions = questions;
+        this.names = Object.keys(questions);
+        this.thinkForm = new FormGroup(this.getFormsNames());
+      });
   }
 
   getFormsNames() {
