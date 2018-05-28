@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { QuestionsService } from './questions.service';
-import { KeysPipe } from './keysPipe';
 
 @Component({
   selector: 'app-root',

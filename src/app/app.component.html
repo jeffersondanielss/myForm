@@ -1,14 +1,12 @@
 <div class="container app">
-  <h1>
-    <img src="https://www.thinkseg.com/assets/images/logo-thinkseg.svg" class="app__logo" alt="thinkSeg">
-  </h1>
-
+  <app-logo></app-logo>
+  
   <form [formGroup]="thinkForm" (ngSubmit)="addAnswers(thinkForm.value)">
     
     <div *ngFor="let question of questions; let qIndex = index">
       <fieldset class="form-group" *ngIf="!question.hidden">
-        <label for="">{{ question.label }}</label>
-
+        <label>{{ question.label }}</label>
+      
         <div class="form-group">
           <select class="form-control" formControlName="{{names[qIndex]}}" (change)="onChange(questions[qIndex + 1], $event.target.value)">
             <option *ngFor="let item of question.options | keys" value="{{ question.options[item].value }}">{{ question.options[item].label }}</option>
@@ -19,9 +17,7 @@
 
     <button type="submit" class="btn btn-primary btn-block">Enviar</button>
 
-    <div class="app__alert alert alert-success text-center" *ngIf="cool_level != undefined" role="alert">
-      Nível {{ cool_level }}!
-    </div>
+    <app-alert [cl]="cool_level"></app-alert>
 
   </form>
 </div>
