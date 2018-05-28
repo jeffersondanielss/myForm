@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { QuestionComponent } from './question.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { KeysPipe } from '../../pipes/keys.pipe';
 
 describe('QuestionComponent', () => {
   let component: QuestionComponent;
@@ -8,7 +9,8 @@ describe('QuestionComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ QuestionComponent ]
+      imports: [ReactiveFormsModule, FormsModule],
+      declarations: [ QuestionComponent, KeysPipe ]
     })
     .compileComponents();
   }));

@@ -3,7 +3,7 @@
     <label>{{ questions[question].label }}</label>
 
     <div class="form-group">
-      <select class="form-control" formControlName="{{names[qIndex]}}" (change)="onChange(names[qIndex], $event.target.value)">
+      <select class="form-control" formControlName="{{ names[qIndex] }}" (change)="onChange(names[qIndex], $event.target.value)">
         <option *ngFor="let item of questions[question].options | keys" value="{{ questions[question].options[item].value }}">{{ questions[question].options[item].label }}</option>
       </select>
     </div>
