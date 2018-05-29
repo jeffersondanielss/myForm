@@ -1,10 +1,10 @@
 <div [formGroup]="group">
-  <fieldset class="form-group" *ngIf="!questions[question].hidden">
-    <label>{{ questions[question].label }}</label>
+  <fieldset class="form-group" *ngIf="!question.hidden">
+    <label>{{ question.label }}</label>
 
     <div class="form-group">
-      <select class="form-control" formControlName="{{ names[qIndex] }}" (change)="onChange(names[qIndex], $event.target.value)">
-        <option *ngFor="let item of questions[question].options | keys" value="{{ questions[question].options[item].value }}">{{ questions[question].options[item].label }}</option>
+      <select class="form-control" formControlName="{{ names[questionIndex] }}" (change)="onChange(names[questionIndex], $event.target.value)">
+        <option *ngFor="let option of question.options | objectToArray" value="{{ option.value }}">{{ option.label }}</option>
       </select>
     </div>
   </fieldset>

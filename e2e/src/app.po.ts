@@ -6,6 +6,6 @@ export class AppPage {
   }
 
   getLogo() {
-    return element(by.css('app-root .logo')).getAttribute('alt');
+    return element(by.css('app-root .logo')).getAttribute('title');
   }
 }

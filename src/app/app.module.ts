@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { QuestionsService } from './services/questions.service';
 import { AppComponent } from './app.component';
-import { KeysPipe } from './pipes/keys.pipe';
+import { ObjectToArray } from './pipes/objectToArray.pipe';
 import { AlertComponent } from './components/alert/alert.component';
 import { LogoComponent } from './components/logo/logo.component';
 import { QuestionComponent } from './components/question/question.component';
@@ -12,7 +12,7 @@ import { QuestionComponent } from './components/question/question.component';
 @NgModule({
   declarations: [
     AppComponent,
-    KeysPipe,
+    ObjectToArray,
     AlertComponent,
     LogoComponent,
     QuestionComponent

@@ -11,20 +11,20 @@ import { QuestionsService } from './services/questions.service';
 
 export class AppComponent {
   questionsService: QuestionsService;
-  thinkForm: FormGroup;
+  myForm: FormGroup;
   questions: object = {};
   names: Array<string> = [];
   cool_level: string = undefined;
 
   constructor(private qs: QuestionsService) {
     this.questionsService = qs;
-    this.thinkForm = new FormGroup({});
+    this.myForm = new FormGroup({});
 
     this.questionsService.get()
       .then( ({ questions }) => {
         this.questions = questions;
         this.names = Object.keys(questions);
-        this.thinkForm = new FormGroup(this.getFormsNames());
+        this.myForm = new FormGroup(this.getFormsNames());
       });
   }
 
@@ -54,7 +54,7 @@ export class AppComponent {
 
   addAnswers() {
     this.questionsService
-      .post({ answers: this.thinkForm.value })
+      .post({ answers: this.myForm.value })
       .then( ({ cool_level }) => this.cool_level = cool_level );
   }
 }

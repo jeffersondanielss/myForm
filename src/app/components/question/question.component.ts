@@ -12,7 +12,7 @@ export class QuestionComponent {
   @Input() questions: object;
   @Input() question: object;
   @Input() names: Array<string>;
-  @Input() qIndex: number;
+  @Input() questionIndex: number;
   @Input() group: FormGroup;
 
   constructor() {}
@@ -26,7 +26,7 @@ export class QuestionComponent {
    * @param {string} value
    * @memberof QuestionComponent
    * @example
-   * this.onChange('likes_thinkseg', '1')
+   * this.onChange('likes_myform', '1')
    */
 
   onChange(questionName: string, value: string) {

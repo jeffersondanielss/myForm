@@ -4,7 +4,7 @@ import { AlertComponent } from './components/alert/alert.component';
 import { LogoComponent } from './components/logo/logo.component';
 import { QuestionComponent } from './components/question/question.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { KeysPipe } from './pipes/keys.pipe';
+import { ObjectToArray } from './pipes/objectToArray.pipe';
 import { HttpClientModule } from '@angular/common/http';
 
 describe('AppComponent', () => {
@@ -17,7 +17,7 @@ describe('AppComponent', () => {
         AlertComponent,
         LogoComponent,
         QuestionComponent,
-        KeysPipe
+        ObjectToArray
       ],
     }).compileComponents();
   }));

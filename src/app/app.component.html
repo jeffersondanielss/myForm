@@ -1,15 +1,15 @@
 <div class="container app">
   <app-logo></app-logo>
   
-  <form [formGroup]="thinkForm" (ngSubmit)="addAnswers(thinkForm.value)">
+  <form [formGroup]="myForm" (ngSubmit)="addAnswers(myForm.value)">
     
-    <div *ngFor="let question of questions | keys; let qIndex = index">
+    <div *ngFor="let question of questions | objectToArray; let questionIndex = index">
       <app-question
         [questions]="questions"
         [question]="question"
         [names]="names"
-        [qIndex]="qIndex"
-        [group]="thinkForm">
+        [questionIndex]="questionIndex"
+        [group]="myForm">
       </app-question>
     </div>
 
