@@ -10,7 +10,7 @@ import { FormGroup } from '@angular/forms';
 export class QuestionComponent {
 
   @Input() questions: object;
-  @Input() question: object;
+  @Input() question;
   @Input() names: Array<string>;
   @Input() questionIndex: number;
   @Input() group: FormGroup;
@@ -30,13 +30,17 @@ export class QuestionComponent {
    */
 
   onChange(questionName: string, value: string) {
-    const targetName = this.questions[questionName].options.yes.show;
-    const targetQuestion = this.questions[targetName];
+    try {
+      const targetName = this.questions[questionName].options.yes.show;
+      const targetQuestion = this.questions[targetName];
 
-    if ( value === '1' ) {
-      targetQuestion.hidden = false;
-    } else {
-      targetQuestion.hidden = true;
+      if ( value === '1' ) {
+        targetQuestion.hidden = false;
+      } else {
+        targetQuestion.hidden = true;
+      }
+    } catch ( error ) {
+      return; // Fim das questões
     }
   }
 

@@ -14,7 +14,7 @@ export class AppComponent {
   myForm: FormGroup;
   questions: object = {};
   names: Array<string> = [];
-  cool_level: string = undefined;
+  cool_level: string;
 
   constructor(private qs: QuestionsService) {
     this.questionsService = qs;

@@ -1,7 +1,7 @@
 <div class="container app">
   <app-logo></app-logo>
   
-  <form [formGroup]="myForm" (ngSubmit)="addAnswers(myForm.value)">
+  <form [formGroup]="myForm" (ngSubmit)="addAnswers()">
     
     <div *ngFor="let question of questions | objectToArray; let questionIndex = index">
       <app-question
